@@ -28,7 +28,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden">
+    <section className="relative min-h-[80vh] sm:min-h-screen flex items-center justify-center bg-white overflow-hidden py-8 sm:py-0">
       
       {/* Ultra-minimal background with subtle animation */}
       <div className="absolute inset-0 bg-gradient-to-b from-gray-50/30 to-white"></div>
@@ -45,7 +45,7 @@ const HeroSection = () => {
           
           {/* Apple-style minimal badge with animation */}
           <div className="animate-fadeInUp opacity-0" style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }}>
-            <div className="inline-flex items-center gap-2 bg-gray-100/80 backdrop-blur-sm rounded-full px-3 sm:px-4 py-2 mb-6 sm:mb-8 hover:bg-gray-200/80 transition-all duration-300 cursor-pointer hover:scale-105">
+            <div className="inline-flex items-center gap-2 bg-gray-100/80 backdrop-blur-sm rounded-full px-3 sm:px-4 py-2 mb-4 sm:mb-6 lg:mb-8 hover:bg-gray-200/80 transition-all duration-300 cursor-pointer hover:scale-105">
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
               <span className="text-xs sm:text-sm font-medium text-gray-700">Now hiring at 10,000+ companies</span>
             </div>
@@ -53,7 +53,7 @@ const HeroSection = () => {
 
           {/* Apple-inspired typography with staggered animation */}
           <div className="animate-fadeInUp opacity-0" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
-            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-semibold tracking-tight text-gray-900 mb-4 sm:mb-6 leading-[0.85]">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-semibold tracking-tight text-gray-900 mb-3 sm:mb-4 lg:mb-6 leading-[0.85]">
               <span className="inline-block hover:scale-105 transition-transform duration-300 cursor-default">Find work</span>
               <br />
               <span className="text-gray-400 inline-block hover:scale-105 transition-transform duration-300 cursor-default">you love</span>
@@ -62,7 +62,7 @@ const HeroSection = () => {
 
           {/* Minimal description with animation */}
           <div className="animate-fadeInUp opacity-0" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
-            <p className="text-base sm:text-xl md:text-2xl text-gray-500 mb-8 sm:mb-12 max-w-2xl mx-auto font-light leading-relaxed px-4 sm:px-0">
+            <p className="text-base sm:text-xl md:text-2xl text-gray-500 mb-6 sm:mb-8 lg:mb-12 max-w-2xl mx-auto font-light leading-relaxed px-4 sm:px-0">
               Connect with opportunities that matter.
               <br className="hidden sm:block" />
               <span className="sm:hidden"> </span>Simple. Fast. Effective.
@@ -70,7 +70,7 @@ const HeroSection = () => {
           </div>
 
           {/* Apple-style search interface with animation */}
-          <div className="max-w-2xl mx-auto mb-12 sm:mb-16 animate-fadeInUp opacity-0 px-4 sm:px-0" style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}>
+          <div className="max-w-2xl mx-auto mb-8 sm:mb-12 lg:mb-16 animate-fadeInUp opacity-0 px-4 sm:px-0" style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}>
             <form onSubmit={handleSearch} className="relative group">
               <div className="absolute inset-y-0 left-0 pl-4 sm:pl-6 flex items-center pointer-events-none">
                 <Search className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400 group-focus-within:text-gray-600 transition-colors duration-200" />
@@ -80,8 +80,8 @@ const HeroSection = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyPress={handleKeyPress}
-                placeholder="Search for jobs, companies, or skills"
-                className="w-full pl-12 sm:pl-14 pr-32 sm:pr-40 py-4 sm:py-5 text-base sm:text-lg bg-gray-50/80 backdrop-blur-sm border-0 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-gray-900 focus:bg-white/90 transition-all duration-300 placeholder-gray-400 hover:bg-gray-100/80 hover:scale-[1.02] focus:outline-none"
+                placeholder="Search jobs, companies, skills"
+                className="w-full pl-12 sm:pl-14 pr-32 sm:pr-40 py-4 sm:py-5 text-base sm:text-lg bg-gray-50/80 backdrop-blur-sm border-0 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-gray-900 focus:bg-white/90 transition-all duration-300 placeholder-gray-500 sm:placeholder-gray-400 placeholder:text-sm sm:placeholder:text-base hover:bg-gray-100/80 hover:scale-[1.02] focus:outline-none"
               />
               
               {/* Clear button - only show when there's text */}
@@ -111,8 +111,8 @@ const HeroSection = () => {
           </div>
 
           {/* Minimal social proof with animation */}
-          <div className="border-t border-gray-100 pt-8 sm:pt-12 animate-fadeInUp opacity-0 px-4 sm:px-0" style={{ animationDelay: '0.5s', animationFillMode: 'forwards' }}>
-            <p className="text-xs sm:text-sm text-gray-400 mb-4 sm:mb-6 uppercase tracking-wider font-medium">
+          <div className="border-t border-gray-100 pt-6 sm:pt-8 lg:pt-12 animate-fadeInUp opacity-0 px-4 sm:px-0" style={{ animationDelay: '0.5s', animationFillMode: 'forwards' }}>
+            <p className="text-xs sm:text-sm text-gray-400 mb-3 sm:mb-4 lg:mb-6 uppercase tracking-wider font-medium">
               Trusted by professionals at
             </p>
             

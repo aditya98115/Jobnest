@@ -52,10 +52,16 @@ const Header = () => {
                   Application Tracker
                 </Link>
                 <Link
-                  to="/resources"
+                  to="/articles-posts"
                   className="text-muted-foreground hover:text-foreground transition-colors text-sm xl:text-base"
                 >
-                  Resources
+                  Articles & Posts
+                </Link>
+                <Link
+                  to="/remote-resources"
+                  className="text-muted-foreground hover:text-foreground transition-colors text-sm xl:text-base"
+                >
+                  Remote Resources
                 </Link>
                 <Link
                   to="/about"
@@ -127,11 +133,18 @@ const Header = () => {
                   Application Tracker
                 </Link>
                 <Link
-                  to="/resources"
+                  to="/articles-posts"
                   className="block px-3 py-2 rounded-md text-base font-medium text-muted-foreground hover:text-foreground hover:bg-gray-50 transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  Resources
+                  Articles & Posts
+                </Link>
+                <Link
+                  to="/remote-resources"
+                  className="block px-3 py-2 rounded-md text-base font-medium text-muted-foreground hover:text-foreground hover:bg-gray-50 transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Remote Resources
                 </Link>
                 <Link
                   to="/about"
