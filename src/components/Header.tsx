@@ -52,6 +52,12 @@ const Header = () => {
                   Application Tracker
                 </Link>
                 <Link
+                  to="/job-portals"
+                  className="text-muted-foreground hover:text-foreground transition-colors text-sm xl:text-base"
+                >
+                  Job Portals
+                </Link>
+                <Link
                   to="/articles-posts"
                   className="text-muted-foreground hover:text-foreground transition-colors text-sm xl:text-base"
                 >
@@ -131,6 +137,13 @@ const Header = () => {
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Application Tracker
+                </Link>
+                <Link
+                  to="/job-portals"
+                  className="block px-3 py-2 rounded-md text-base font-medium text-muted-foreground hover:text-foreground hover:bg-gray-50 transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Job Portals
                 </Link>
                 <Link
                   to="/articles-posts"

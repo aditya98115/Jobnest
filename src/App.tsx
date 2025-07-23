@@ -17,6 +17,7 @@ import SavedJobs from "./pages/SavedJobs";
 import About from "./pages/About";
 import RemoteResources from "./pages/RemoteResources";
 import ArticlesPosts from "./pages/ArticlesPosts";
+import JobPortals from "./pages/JobPortals";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ const App = () => (
               <Route path="/resources" element={<Resources />} />
               <Route path="/application-tracker" element={<ApplicationTracker />} />
               <Route path="/articles-posts" element={<ArticlesPosts />} />
+              <Route path="/job-portals" element={<JobPortals />} />
               <Route path="/resumes" element={<Resumes />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/saved-jobs" element={<SavedJobs />} />
