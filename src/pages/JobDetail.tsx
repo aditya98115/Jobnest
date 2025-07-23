@@ -154,64 +154,64 @@ Best regards,
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <div className="py-8">
+      <div className="py-4 sm:py-8">
         <div className="container mx-auto px-4 max-w-4xl">
           {/* Back Button */}
           <Button
             variant="ghost"
             onClick={() => navigate('/')}
-            className="mb-6 flex items-center gap-2"
+            className="mb-4 sm:mb-6 flex items-center gap-2 text-sm sm:text-base"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Jobs
           </Button>
         {/* Header */}
-        <Card className="mb-6">
-          <CardContent className="p-8">
-            <div className="flex items-start gap-6">
+        <Card className="mb-4 sm:mb-6">
+          <CardContent className="p-4 sm:p-6 lg:p-8">
+            <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
               <img
                 src={job.company?.logo_url || getCompanyImageFallback(job.company?.name)}
                 alt={`${job.company?.name} logo`}
-                className="w-20 h-20 rounded-lg object-cover border border-border"
+                className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg object-cover border border-border flex-shrink-0"
               />
-              <div className="flex-1">
-                <div className="flex flex-wrap items-center gap-3 mb-3">
-                  <Badge variant={job.job_type === 'Internship' ? 'secondary' : 'default'}>
+              <div className="flex-1 min-w-0 w-full">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-3">
+                  <Badge variant={job.job_type === 'Internship' ? 'secondary' : 'default'} className="text-xs">
                     {job.job_type}
                   </Badge>
-                  {job.featured && <Badge variant="outline">Featured</Badge>}
-                  {job.urgent && <Badge variant="destructive">Urgent</Badge>}
+                  {job.featured && <Badge variant="outline" className="text-xs">Featured</Badge>}
+                  {job.urgent && <Badge variant="destructive" className="text-xs">Urgent</Badge>}
                 </div>
-                <h1 className="text-3xl font-bold mb-2">{job.title}</h1>
-                <p className="text-xl text-muted-foreground mb-4">{job.company?.name}</p>
+                <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-2 line-clamp-2">{job.title}</h1>
+                <p className="text-lg sm:text-xl text-muted-foreground mb-3 sm:mb-4">{job.company?.name}</p>
                 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
                   <div className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4 text-muted-foreground" />
-                    <span className="text-sm">{job.location?.city}</span>
+                    <MapPin className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+                    <span className="text-sm truncate">{job.location?.city}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4 text-muted-foreground" />
+                    <Calendar className="w-4 h-4 text-muted-foreground flex-shrink-0" />
                     <span className="text-sm">{formatDate(job.posted_date)}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <DollarSign className="w-4 h-4 text-muted-foreground" />
-                    <span className="text-sm">{formatSalary(job.salary_min, job.salary_max, job.salary_currency, job.salary_period)}</span>
+                    <DollarSign className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+                    <span className="text-sm truncate">{formatSalary(job.salary_min, job.salary_max, job.salary_currency, job.salary_period)}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Clock className="w-4 h-4 text-muted-foreground" />
+                    <Clock className="w-4 h-4 text-muted-foreground flex-shrink-0" />
                     <span className="text-sm">{job.experience_years_min || 0} years exp</span>
                   </div>
                 </div>
               </div>
               
               {/* Action Buttons */}
-              <div className="flex-shrink-0">
+              <div className="w-full sm:w-auto flex-shrink-0">
                 <Button 
                   variant="outline" 
                   size="lg"
                   onClick={handleSave}
-                  className={`transition-all duration-200 ${
+                  className={`w-full sm:w-auto transition-all duration-200 ${
                     isSaved 
                       ? 'bg-blue-50 border-blue-200 text-blue-700 hover:bg-blue-100' 
                       : 'hover:bg-gray-50'
@@ -225,17 +225,17 @@ Best regards,
           </CardContent>
         </Card>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
           {/* Main Content */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="lg:col-span-2 space-y-4 sm:space-y-6">
             {/* Job Description */}
             <Card>
-              <CardHeader>
-                <CardTitle>Job Description</CardTitle>
+              <CardHeader className="pb-3 sm:pb-6">
+                <CardTitle className="text-lg sm:text-xl">Job Description</CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="prose max-w-none">
-                  <p className="whitespace-pre-line">{job.description}</p>
+              <CardContent className="pt-0">
+                <div className="prose prose-sm sm:prose max-w-none">
+                  <p className="whitespace-pre-line text-sm sm:text-base leading-relaxed">{job.description}</p>
                 </div>
               </CardContent>
             </Card>
@@ -243,12 +243,12 @@ Best regards,
             {/* Requirements */}
             {job.requirements && (
               <Card>
-                <CardHeader>
-                  <CardTitle>Requirements</CardTitle>
+                <CardHeader className="pb-3 sm:pb-6">
+                  <CardTitle className="text-lg sm:text-xl">Requirements</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <div className="prose max-w-none">
-                    <p className="whitespace-pre-line">{job.requirements}</p>
+                <CardContent className="pt-0">
+                  <div className="prose prose-sm sm:prose max-w-none">
+                    <p className="whitespace-pre-line text-sm sm:text-base leading-relaxed">{job.requirements}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -257,12 +257,12 @@ Best regards,
             {/* Responsibilities */}
             {job.responsibilities && (
               <Card>
-                <CardHeader>
-                  <CardTitle>Responsibilities</CardTitle>
+                <CardHeader className="pb-3 sm:pb-6">
+                  <CardTitle className="text-lg sm:text-xl">Responsibilities</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <div className="prose max-w-none">
-                    <p className="whitespace-pre-line">{job.responsibilities}</p>
+                <CardContent className="pt-0">
+                  <div className="prose prose-sm sm:prose max-w-none">
+                    <p className="whitespace-pre-line text-sm sm:text-base leading-relaxed">{job.responsibilities}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -271,18 +271,18 @@ Best regards,
             {/* Skills */}
             {job.skills && job.skills.length > 0 && (
               <Card>
-                <CardHeader>
-                  <CardTitle>Required Skills</CardTitle>
+                <CardHeader className="pb-3 sm:pb-6">
+                  <CardTitle className="text-lg sm:text-xl">Required Skills</CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="pt-0">
                   <div className="space-y-4">
                     <div>
-                      <h4 className="font-medium mb-2">Required Skills</h4>
+                      <h4 className="font-medium mb-2 text-sm sm:text-base">Required Skills</h4>
                       <div className="flex flex-wrap gap-2">
                         {job.skills
                           .filter(js => js.is_required)
                           .map((jobSkill) => (
-                            <Badge key={jobSkill.id} variant="default">
+                            <Badge key={jobSkill.id} variant="default" className="text-xs">
                               {jobSkill.skill?.name} 
                               {jobSkill.proficiency_level && ` (${jobSkill.proficiency_level})`}
                             </Badge>
@@ -292,12 +292,12 @@ Best regards,
                     
                     {job.skills.some(js => !js.is_required) && (
                       <div>
-                        <h4 className="font-medium mb-2">Preferred Skills</h4>
+                        <h4 className="font-medium mb-2 text-sm sm:text-base">Preferred Skills</h4>
                         <div className="flex flex-wrap gap-2">
                           {job.skills
                             .filter(js => !js.is_required)
                             .map((jobSkill) => (
-                              <Badge key={jobSkill.id} variant="secondary">
+                              <Badge key={jobSkill.id} variant="secondary" className="text-xs">
                                 {jobSkill.skill?.name}
                                 {jobSkill.proficiency_level && ` (${jobSkill.proficiency_level})`}
                               </Badge>
@@ -312,42 +312,42 @@ Best regards,
           </div>
 
           {/* Sidebar */}
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {/* Company Info */}
             <Card>
-              <CardHeader>
-                <CardTitle>About {job.company?.name}</CardTitle>
+              <CardHeader className="pb-3 sm:pb-6">
+                <CardTitle className="text-lg sm:text-xl">About {job.company?.name}</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="pt-0 space-y-4">
                 {job.company?.description && (
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     {job.company.description}
                   </p>
                 )}
                 
-                <div className="space-y-2">
+                <div className="space-y-3">
                   {job.company?.industry && (
                     <div className="flex items-center gap-2">
-                      <Building className="w-4 h-4 text-muted-foreground" />
+                      <Building className="w-4 h-4 text-muted-foreground flex-shrink-0" />
                       <span className="text-sm">{job.company.industry}</span>
                     </div>
                   )}
                   
                   {job.company?.size_range && (
                     <div className="flex items-center gap-2">
-                      <Users className="w-4 h-4 text-muted-foreground" />
+                      <Users className="w-4 h-4 text-muted-foreground flex-shrink-0" />
                       <span className="text-sm">{job.company.size_range} employees</span>
                     </div>
                   )}
                   
                   {job.company?.website_url && (
                     <div className="flex items-center gap-2">
-                      <Globe className="w-4 h-4 text-muted-foreground" />
+                      <Globe className="w-4 h-4 text-muted-foreground flex-shrink-0" />
                       <a 
                         href={job.company.website_url} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="text-sm text-primary hover:underline"
+                        className="text-sm text-primary hover:underline break-all"
                       >
                         Company Website
                       </a>
@@ -359,30 +359,30 @@ Best regards,
 
             {/* Job Details */}
             <Card>
-              <CardHeader>
-                <CardTitle>Job Details</CardTitle>
+              <CardHeader className="pb-3 sm:pb-6">
+                <CardTitle className="text-lg sm:text-xl">Job Details</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="space-y-2">
-                  <div className="flex justify-between">
+              <CardContent className="pt-0 space-y-4">
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center">
                     <span className="text-sm text-muted-foreground">Job Type</span>
                     <span className="text-sm font-medium">{job.job_type}</span>
                   </div>
                   
-                  <div className="flex justify-between">
+                  <div className="flex justify-between items-center">
                     <span className="text-sm text-muted-foreground">Experience</span>
                     <span className="text-sm font-medium">
                       {job.experience_years_min || 0}-{job.experience_years_max || (job.experience_years_min || 0) + 2} years
                     </span>
                   </div>
                   
-                  <div className="flex justify-between">
+                  <div className="flex justify-between items-center">
                     <span className="text-sm text-muted-foreground">Remote</span>
                     <span className="text-sm font-medium">{job.is_remote ? 'Yes' : 'No'}</span>
                   </div>
                   
                   {job.application_deadline && (
-                    <div className="flex justify-between">
+                    <div className="flex justify-between items-center">
                       <span className="text-sm text-muted-foreground">Deadline</span>
                       <span className="text-sm font-medium">{formatDate(job.application_deadline)}</span>
                     </div>
@@ -394,15 +394,15 @@ Best regards,
             {/* Benefits */}
             {job.benefits && job.benefits.length > 0 && (
               <Card>
-                <CardHeader>
-                  <CardTitle>Benefits</CardTitle>
+                <CardHeader className="pb-3 sm:pb-6">
+                  <CardTitle className="text-lg sm:text-xl">Benefits</CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="pt-0">
                   <ul className="space-y-2">
                     {job.benefits.map((benefit, index) => (
-                      <li key={index} className="text-sm flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-success"></div>
-                        {benefit}
+                      <li key={index} className="text-sm flex items-start gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-success mt-2 flex-shrink-0"></div>
+                        <span className="leading-relaxed">{benefit}</span>
                       </li>
                     ))}
                   </ul>
@@ -419,16 +419,17 @@ Best regards,
               <Button 
                 variant="outline"
                 onClick={handleSave}
-                className={`transition-all duration-200 ${
+                className={`transition-all duration-200 shadow-lg hover:shadow-xl ${
                   isSaved 
                     ? 'bg-blue-50 border-blue-200 text-blue-700 hover:bg-blue-100' 
                     : 'hover:bg-gray-50'
                 }`}
               >
                 <Bookmark className={`w-4 h-4 ${isSaved ? 'fill-current' : ''}`} />
+                <span className="hidden sm:inline ml-2">Save</span>
               </Button>
               <Button 
-                className={`flex-1 transition-all duration-200 ${
+                className={`flex-1 transition-all duration-200 shadow-lg hover:shadow-xl font-semibold ${
                   isApplied 
                     ? 'bg-green-600 hover:bg-green-600 cursor-not-allowed' 
                     : 'bg-primary hover:bg-primary/90'
@@ -437,11 +438,15 @@ Best regards,
                 onClick={handleApplyNow}
                 disabled={isApplied}
               >
+                <Briefcase className="w-4 h-4 mr-2" />
                 {isApplied ? 'Applied' : 'Apply Now'}
               </Button>
             </div>
           </div>
         )}
+        
+        {/* Add bottom padding to account for sticky button */}
+        <div className={`${showApplyButton ? 'h-20' : 'h-4'} transition-all duration-200`}></div>
         </div>
       </div>
     </div>
