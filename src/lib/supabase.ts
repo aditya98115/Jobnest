@@ -198,6 +198,80 @@ export const jobService = {
     }
   },
 
+  // Search jobs by title, company, skills, or location
+  async searchJobs(searchQuery: string) {
+    console.log('Searching jobs with query:', searchQuery);
+    
+    if (!searchQuery.trim()) {
+      return this.getJobs(); // Return all jobs if no search query
+    }
+    
+    try {
+      const query = searchQuery.toLowerCase().trim();
+      
+      // First, get all jobs with their related data
+      const { data, error } = await supabase
+        .from('jobs')
+        .select(`
+          *,
+          companies(*),
+          job_categories(*),
+          locations(*),
+          job_skills(
+            *,
+            skills(*)
+          )
+        `)
+        .eq('status', 'active')
+        .order('posted_date', { ascending: false });
+
+      if (error) {
+        console.error('Error searching jobs:', error);
+        throw error;
+      }
+
+      console.log('Raw search results:', data?.length);
+
+      // Transform the data to match our interface
+      const jobsData: Job[] = data?.map(job => ({
+        ...job,
+        company: job.companies,
+        category: job.job_categories,
+        location: job.locations,
+        skills: job.job_skills?.map((js: any) => ({
+          ...js,
+          skill: js.skills
+        })) || []
+      })) || [];
+
+      // Filter jobs based on search query
+      const filteredJobs = jobsData.filter(job => {
+        const titleMatch = job.title?.toLowerCase().includes(query);
+        const companyMatch = job.company?.name?.toLowerCase().includes(query);
+        const categoryMatch = job.category?.name?.toLowerCase().includes(query);
+        const locationMatch = 
+          job.location?.city?.toLowerCase().includes(query) ||
+          job.location?.country?.toLowerCase().includes(query);
+        const skillMatch = job.skills?.some(js => 
+          js.skill?.name?.toLowerCase().includes(query)
+        );
+        const descriptionMatch = job.description?.toLowerCase().includes(query);
+        const jobTypeMatch = job.job_type?.toLowerCase().includes(query);
+
+        return titleMatch || companyMatch || categoryMatch || locationMatch || 
+               skillMatch || descriptionMatch || jobTypeMatch;
+      });
+
+      console.log('Filtered search results:', filteredJobs.length);
+      return filteredJobs;
+    } catch (error) {
+      console.error('Error in searchJobs:', error);
+      // Fallback: return all jobs if search fails
+      console.log('Falling back to getJobs()');
+      return this.getJobs();
+    }
+  },
+
   // Update job view count
   async incrementViewCount(jobId: string) {
     try {
