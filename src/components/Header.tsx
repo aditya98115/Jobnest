@@ -38,42 +38,42 @@ const Header = () => {
               </div>
               
               {/* Desktop Navigation */}
-              <nav className="hidden lg:flex space-x-6 ml-8 xl:ml-16">
+              <nav className="hidden lg:flex space-x-6 ml-8 xl:ml-16" role="navigation" aria-label="Main navigation">
+                <Link
+                  to="/blog"
+                  className="text-muted-foreground hover:text-foreground transition-colors text-sm xl:text-base font-medium"
+                >
+                  Career Blog
+                </Link>
                 <Link
                   to="/interview-tips"
-                  className="text-muted-foreground hover:text-foreground transition-colors text-sm xl:text-base"
+                  className="text-muted-foreground hover:text-foreground transition-colors text-sm xl:text-base font-medium"
                 >
                   Interview Tips
                 </Link>
                 <Link
+                  to="/resources"
+                  className="text-muted-foreground hover:text-foreground transition-colors text-sm xl:text-base font-medium"
+                >
+                  Resources
+                </Link>
+                <Link
                   to="/application-tracker"
-                  className="text-muted-foreground hover:text-foreground transition-colors text-sm xl:text-base"
+                  className="text-muted-foreground hover:text-foreground transition-colors text-sm xl:text-base font-medium"
                 >
-                  Application Tracker
-                </Link>
-                <Link
-                  to="/job-portals"
-                  className="text-muted-foreground hover:text-foreground transition-colors text-sm xl:text-base"
-                >
-                  Job Portals
-                </Link>
-                <Link
-                  to="/articles-posts"
-                  className="text-muted-foreground hover:text-foreground transition-colors text-sm xl:text-base"
-                >
-                  Articles & Posts
-                </Link>
-                <Link
-                  to="/remote-resources"
-                  className="text-muted-foreground hover:text-foreground transition-colors text-sm xl:text-base"
-                >
-                  Remote Resources
+                  My Applications
                 </Link>
                 <Link
                   to="/about"
-                  className="text-muted-foreground hover:text-foreground transition-colors text-sm xl:text-base"
+                  className="text-muted-foreground hover:text-foreground transition-colors text-sm xl:text-base font-medium"
                 >
                   About
+                </Link>
+                <Link
+                  to="/faq"
+                  className="text-muted-foreground hover:text-foreground transition-colors text-sm xl:text-base font-medium"
+                >
+                  Help
                 </Link>
               </nav>
             </div>
@@ -125,6 +125,13 @@ const Header = () => {
             <div className="lg:hidden">
               <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-200 mt-4">
                 <Link
+                  to="/blog"
+                  className="block px-3 py-2 rounded-md text-base font-medium text-muted-foreground hover:text-foreground hover:bg-gray-50 transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Career Blog
+                </Link>
+                <Link
                   to="/interview-tips"
                   className="block px-3 py-2 rounded-md text-base font-medium text-muted-foreground hover:text-foreground hover:bg-gray-50 transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
@@ -132,32 +139,18 @@ const Header = () => {
                   Interview Tips
                 </Link>
                 <Link
+                  to="/resources"
+                  className="block px-3 py-2 rounded-md text-base font-medium text-muted-foreground hover:text-foreground hover:bg-gray-50 transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Resources
+                </Link>
+                <Link
                   to="/application-tracker"
                   className="block px-3 py-2 rounded-md text-base font-medium text-muted-foreground hover:text-foreground hover:bg-gray-50 transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  Application Tracker
-                </Link>
-                <Link
-                  to="/job-portals"
-                  className="block px-3 py-2 rounded-md text-base font-medium text-muted-foreground hover:text-foreground hover:bg-gray-50 transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Job Portals
-                </Link>
-                <Link
-                  to="/articles-posts"
-                  className="block px-3 py-2 rounded-md text-base font-medium text-muted-foreground hover:text-foreground hover:bg-gray-50 transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Articles & Posts
-                </Link>
-                <Link
-                  to="/remote-resources"
-                  className="block px-3 py-2 rounded-md text-base font-medium text-muted-foreground hover:text-foreground hover:bg-gray-50 transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Remote Resources
+                  My Applications
                 </Link>
                 <Link
                   to="/about"
@@ -165,6 +158,13 @@ const Header = () => {
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   About
+                </Link>
+                <Link
+                  to="/faq"
+                  className="block px-3 py-2 rounded-md text-base font-medium text-muted-foreground hover:text-foreground hover:bg-gray-50 transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Help & FAQ
                 </Link>
               </div>
             </div>

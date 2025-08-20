@@ -12,3 +12,33 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Sitemap location
+Sitemap: https://jobnest.com/sitemap.xml
+
+# Allow search engines to crawl all pages
+Allow: /blog
+Allow: /interview-tips
+Allow: /resources
+Allow: /about
+Allow: /faq
+Allow: /privacy-policy
+Allow: /terms-of-service
+Allow: /application-tracker
+Allow: /resumes
+Allow: /profile
+Allow: /saved-jobs
+Allow: /remote-resources
+Allow: /articles-posts
+Allow: /job-portals
+
+# Crawl delay (optional - helps prevent overwhelming the server)
+Crawl-delay: 1
+
+# Disallow sensitive areas (if any)
+# Disallow: /admin/
+# Disallow: /api/
+
+# Google AdSense verification
+User-agent: Googlebot
+Allow: /ads.txt

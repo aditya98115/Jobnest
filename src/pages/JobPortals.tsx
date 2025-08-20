@@ -1468,45 +1468,46 @@ const JobPortals = () => {
                 <h2 className="text-3xl font-semibold text-gray-900">Most Popular Platforms</h2>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              <div className="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6">
                 {popularPortals.slice(0, 8).map((portal, index) => (
                   <div
                     key={portal.id}
                     onClick={() => window.open(portal.url, '_blank')}
-                    className="group bg-white rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-green-200 hover:scale-105"
+                    className="group bg-white rounded-xl p-3 md:p-6 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-green-200 hover:scale-105"
                   >
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="text-3xl">{portal.logo}</div>
-                      <div className="flex items-center gap-1 bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium">
+                    <div className="flex items-start justify-between mb-2 md:mb-4">
+                      <div className="text-xl md:text-3xl">{portal.logo}</div>
+                      <div className="flex items-center gap-1 bg-green-100 text-green-700 px-1 md:px-2 py-1 rounded-full text-xs font-medium">
                         <Star className="w-3 h-3 fill-current" />
-                        Popular
+                        <span className="hidden md:inline">Popular</span>
                       </div>
                     </div>
                     
-                    <h3 className="font-bold text-gray-900 mb-2 group-hover:text-green-600 transition-colors">
+                    <h3 className="font-bold text-gray-900 mb-1 md:mb-2 group-hover:text-green-600 transition-colors text-sm md:text-base line-clamp-2">
                       {portal.name}
                     </h3>
                     
-                    <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                    <p className="text-gray-600 text-xs md:text-sm mb-2 md:mb-4 line-clamp-2">
                       {portal.description}
                     </p>
                     
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="inline-flex items-center gap-1 bg-gray-100 text-gray-600 px-2 py-1 rounded-md text-xs font-medium">
+                    <div className="flex items-center justify-between mb-2 md:mb-4">
+                      <span className="inline-flex items-center gap-1 bg-gray-100 text-gray-600 px-1 md:px-2 py-1 rounded-md text-xs font-medium">
                         <MapPin className="w-3 h-3" />
-                        {portal.region}
+                        <span className="hidden md:inline">{portal.region}</span>
                       </span>
                       <div className="flex items-center gap-1">
-                        <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                        <span className="text-sm font-medium">{portal.rating}</span>
+                        <Star className="w-3 md:w-4 h-3 md:h-4 text-yellow-500 fill-current" />
+                        <span className="text-xs md:text-sm font-medium">{portal.rating}</span>
                       </div>
                     </div>
 
                     <div className="flex items-center justify-between">
-                      <span className="text-green-600 font-medium text-sm group-hover:text-green-700 transition-colors">
-                        Visit Portal
+                      <span className="text-green-600 font-medium text-xs md:text-sm group-hover:text-green-700 transition-colors">
+                        <span className="hidden md:inline">Visit Portal</span>
+                        <span className="md:hidden">Visit</span>
                       </span>
-                      <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-green-600 transition-colors" />
+                      <ExternalLink className="w-3 md:w-4 h-3 md:h-4 text-gray-400 group-hover:text-green-600 transition-colors" />
                     </div>
                   </div>
                 ))}
@@ -1529,40 +1530,41 @@ const JobPortals = () => {
               </span>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6">
               {filteredPortals.map((portal, index) => (
                 <div
                   key={portal.id}
                   onClick={() => window.open(portal.url, '_blank')}
-                  className="group bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer border border-gray-100 hover:border-gray-200 hover:scale-[1.02]"
+                  className="group bg-white rounded-xl p-3 md:p-6 shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer border border-gray-100 hover:border-gray-200 hover:scale-[1.02]"
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="text-2xl">{portal.logo}</div>
+                  <div className="flex items-start justify-between mb-2 md:mb-4">
+                    <div className="text-xl md:text-2xl">{portal.logo}</div>
                     <div className="flex items-center gap-2">
                       {portal.popular && (
-                        <div className="flex items-center gap-1 bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full text-xs font-medium">
+                        <div className="flex items-center gap-1 bg-yellow-100 text-yellow-700 px-1 md:px-2 py-1 rounded-full text-xs font-medium">
                           <Star className="w-3 h-3 fill-current" />
+                          <span className="hidden md:inline">Popular</span>
                         </div>
                       )}
-                      <span className="inline-flex items-center gap-1 bg-gray-100 text-gray-600 px-2 py-1 rounded-md text-xs font-medium capitalize">
+                      <span className="inline-flex items-center gap-1 bg-gray-100 text-gray-600 px-1 md:px-2 py-1 rounded-md text-xs font-medium capitalize">
                         {portal.category}
                       </span>
                     </div>
                   </div>
                   
-                  <h3 className="font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                  <h3 className="font-semibold text-gray-900 mb-1 md:mb-2 line-clamp-2 text-sm md:text-base group-hover:text-blue-600 transition-colors">
                     {portal.name}
                   </h3>
                   
-                  <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                  <p className="text-gray-600 text-xs md:text-sm mb-2 md:mb-4 line-clamp-2">
                     {portal.description}
                   </p>
                   
-                  <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center justify-between mb-2 md:mb-4">
                     <span className="inline-flex items-center gap-1 text-gray-500 text-xs">
                       <MapPin className="w-3 h-3" />
-                      {portal.region}
+                      <span className="hidden md:inline">{portal.region}</span>
                     </span>
                     <div className="flex items-center gap-1">
                       <Star className="w-3 h-3 text-yellow-500 fill-current" />
@@ -1570,7 +1572,7 @@ const JobPortals = () => {
                     </div>
                   </div>
 
-                  <div className="space-y-2 mb-4">
+                  <div className="space-y-1 md:space-y-2 mb-2 md:mb-4 hidden md:block">
                     {portal.features.slice(0, 2).map((feature, idx) => (
                       <div key={idx} className="flex items-center gap-2 text-xs text-gray-600">
                         <CheckCircle className="w-3 h-3 text-green-500" />
@@ -1580,10 +1582,11 @@ const JobPortals = () => {
                   </div>
                   
                   <div className="flex items-center justify-between">
-                    <span className="text-blue-600 font-medium text-sm group-hover:text-blue-700 transition-colors">
-                      Visit Portal
+                    <span className="text-blue-600 font-medium text-xs md:text-sm group-hover:text-blue-700 transition-colors">
+                      <span className="hidden md:inline">Visit Portal</span>
+                      <span className="md:hidden">Visit</span>
                     </span>
-                    <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors" />
+                    <ExternalLink className="w-3 md:w-4 h-3 md:h-4 text-gray-400 group-hover:text-blue-600 transition-colors" />
                   </div>
                 </div>
               ))}

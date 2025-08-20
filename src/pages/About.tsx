@@ -16,9 +16,11 @@ import {
   Building,
   Zap,
   Shield,
-  Clock
+  Clock,
+  Phone
 } from "lucide-react";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const About = () => {
   const stats = [
@@ -305,7 +307,7 @@ const About = () => {
                   <Mail className="w-6 h-6 text-gray-600" />
                 </div>
                 <h3 className="text-lg font-medium text-gray-900 mb-2">Email Us</h3>
-                <p className="text-gray-600 font-light">hello@jobplatform.com</p>
+                <p className="text-gray-600 font-light">hello@jobnest.com</p>
               </div>
               
               <div className="text-center p-6">
@@ -313,15 +315,15 @@ const About = () => {
                   <MapPin className="w-6 h-6 text-gray-600" />
                 </div>
                 <h3 className="text-lg font-medium text-gray-900 mb-2">Visit Us</h3>
-                <p className="text-gray-600 font-light">San Francisco, CA</p>
+                <p className="text-gray-600 font-light">Gaur City, Noida</p>
               </div>
               
               <div className="text-center p-6">
                 <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-gray-50 flex items-center justify-center">
-                  <Building className="w-6 h-6 text-gray-600" />
+                  <Phone className="w-6 h-6 text-gray-600" />
                 </div>
-                <h3 className="text-lg font-medium text-gray-900 mb-2">Partner With Us</h3>
-                <p className="text-gray-600 font-light">partnerships@jobplatform.com</p>
+                <h3 className="text-lg font-medium text-gray-900 mb-2">Call Us</h3>
+                <p className="text-gray-600 font-light">+91 9412626872</p>
               </div>
             </div>
             
@@ -332,6 +334,7 @@ const About = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };

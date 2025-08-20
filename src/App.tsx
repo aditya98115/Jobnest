@@ -18,6 +18,12 @@ import About from "./pages/About";
 import RemoteResources from "./pages/RemoteResources";
 import ArticlesPosts from "./pages/ArticlesPosts";
 import JobPortals from "./pages/JobPortals";
+import Blog from "./pages/Blog";
+import BlogArticle from "./pages/BlogArticle";
+import FAQ from "./pages/FAQ";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import CookiePolicy from "./pages/CookiePolicy";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +48,12 @@ const App = () => (
               <Route path="/saved-jobs" element={<SavedJobs />} />
               <Route path="/about" element={<About />} />
               <Route path="/remote-resources" element={<RemoteResources />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:slug" element={<BlogArticle />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-of-service" element={<TermsOfService />} />
+              <Route path="/cookie-policy" element={<CookiePolicy />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
