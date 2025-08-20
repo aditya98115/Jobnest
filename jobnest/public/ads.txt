@@ -1,0 +1,18 @@
+# ads.txt file for Jobnest.com
+# This file is used to declare authorized digital sellers for our ad inventory
+# Last updated: January 20, 2025
+
+# Google AdSense
+google.com, pub-5926233232064241, DIRECT, f08c47fec0942fa0
+
+# Additional authorized sellers (example entries - replace with actual when available)
+# indexexchange.com, 123456, DIRECT, 50b1c356f2c5c8fc
+# pubmatic.com, 654321, DIRECT, 5d62403b186f2ace
+# appnexus.com, 987654, DIRECT, f5ab79cb980f11d1
+
+# Contact information for inquiries about this ads.txt file
+# Contact: ads@jobnest.com
+
+# Variables for transparency
+# OWNERDOMAIN=jobnest.com
+# OWNERDOMAINCONTACT=ads@jobnest.com
